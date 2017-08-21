@@ -1,0 +1,229 @@
+﻿@model BB.Models.Client
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Client</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input data-bind="value:Username" type="text" id="Username" />
+                @*@Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Created, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input data-bind="value:Created" type="text" id="Created" />
+                @*@Html.EditorFor(model => model.Created, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Created, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastLoggedIn, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input data-bind="value:LastLoggedIn" type="text" id="LastLoggedIn" />
+                @*@Html.EditorFor(model => model.LastLoggedIn, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastLoggedIn, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmailAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input data-bind="value:EmailAddress" type="text" id="EmailAddress" />
+                @*@Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @*<input data-bind="value:IsActive" type="text" id="IsActive" />*@
+                    <input type="radio" ID="RadioButtonYes" value="Yes" Name="RadioGroup1" data-bind="checked: IsActive" >
+                    <input type="radio" ID="RadioButtonNo" value="No" Name="RadioGroup1" data-bind="checked: IsActive">
+                    @*@Html.EditorFor(model => model.IsActive)
+                    @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CountryId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input data-bind="value:CountryId" type="number" id="CountryId" />
+                @*@Html.EditorFor(model => model.CountryId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CountryId, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input data-bind="value:FirstName" type="text" id="FirstName" />
+                @*@Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input data-bind="value:LastName" type="text" id="LastName" />
+                @*@Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DialCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input data-bind="value:DialCode" type="number" id="DialCode" />
+                @*@Html.EditorFor(model => model.DialCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DialCode, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ContactNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input data-bind="value:ContactNumber" type="number" id="ContactNumber" />
+                @*@Html.EditorFor(model => model.ContactNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ContactNumber, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input data-bind="value:Image" type="text" id="Image" />
+                @*@Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AverageRating, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input data-bind="value:AverageRating" type="number" id="AverageRating" />
+                @*@Html.EditorFor(model => model.AverageRating, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AverageRating, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/knockout")
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#submit').hide();
+        $("#ContactNumber").keypress(function (e) {
+            //if the letter is not digit then display error and don't type anything
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                //display error message
+
+                return false;
+            }
+        });
+        function Validation() {
+
+            if($("#FirstName").val() == "" || $("#LastName").val() == "" )
+            {
+                alert("All names are mandatory");
+                $('#submit').hide();
+                return false;
+            }
+            if($("#CountryId").val() == "")
+            {
+                alert("Country mandatory");
+                $('#submit').hide();
+                return false;
+            }
+            if($("#ContactNumber").val() == "" )
+            {
+                alert("Contact Number is mandatory");
+                $('#submit').hide();
+                return false;
+            }
+            @*var filter = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+            if (!filter.test(sEmail)) {
+                $('#submit').hide();
+                return false;
+            }*@
+            else
+            {
+                $('#submit').show();
+                return true;
+            }
+
+        }
+
+        //if(!$.isNumeric($("#ContactNumber").val()))
+        //{
+        //    return false
+        //}
+
+        Validation()
+      
+        $('#submit').click(function (e) {
+            var viewModel = {
+                Email: ko.observable($("#EmailAddress").val()),
+                UserName: ko.observable($("#UserName").val()),
+                CountryId: ko.observable($("#CountryId").val()),
+                FirstName: ko.observable($("#FirstName").val()),
+                LastName: ko.observable($("#LastName").val()),
+                DialCode: ko.observable($("#DialCode").val()),
+                ContactNumber: ko.observable($("#ContactNumber").val()),
+                AverageRating: ko.observable($("#AverageRating").val()),
+                Image: ko.observable($("#Image").val()),
+                IsActive: ko.observable($('input:radio:checked').val()),
+                Created: ko.observable($("#Created").val()),
+                LastLoggedIn: ko.observable($("#LastLoggedIn").val()),
+            }
+            ko.applyBindings(viewModel);
+
+
+            $.ajax({
+                type: "POST",
+                url: "/client/edit/",
+                data:  viewModel ,
+                success: function (result) {
+
+                },
+                error: function (data) {
+
+                }
+            });
+        });
+    });
+</script>

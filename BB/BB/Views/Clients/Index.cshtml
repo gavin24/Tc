@@ -1,0 +1,147 @@
+﻿@model IEnumerable<BB.Models.Client>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastLoggedIn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CountryId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DialCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AverageRating)
+        </th>
+        <th></th>
+    </tr>
+    @*<tbody data-bind ="foreach: Clients">
+        <trstyle ="border-bottom: 1px solid #000000;">
+            <td>
+                <spandata-bind ="text: Number"></span>
+            </td>
+            <td>
+                <spandata-bind ="text: Name"></span>
+            </td>
+            <td>
+                <spandata-bind ="text: Surname"></span>
+            </td>
+            </tr>
+            </tbody>*@
+    <tbody data-bind="foreach: Clients">
+       @* @foreach (var item in Model)*@
+          @*//  {*@
+            <tr>
+                <td>
+                  @*  @Html.DisplayFor(modelItem => item.Username)*@
+                    <span data-bind ="text: Username"></span>
+                </td>
+                <td>
+                   @* @Html.DisplayFor(modelItem => item.Created)*@
+                    <span data-bind="text: Created"></span>
+                </td>
+                <td>
+                  @*  @Html.DisplayFor(modelItem => item.LastLoggedIn)*@
+                    <span data-bind="text: LastLoggedIn"></span>
+                </td>
+                <td>
+                  @*  @Html.DisplayFor(modelItem => item.EmailAddress)*@
+                    <span data-bind="text: EmailAddress"></span>
+                </td>
+                <td>
+                  @*  @Html.DisplayFor(modelItem => item.IsActive)*@
+                    <span data-bind="text: IsActive"></span>
+                </td>
+                <td>
+                   @* @Html.DisplayFor(modelItem => item.CountryId)*@
+                    <span data-bind="text: CountryId"></span>
+                </td>
+                <td>
+                   @* @Html.DisplayFor(modelItem => item.FirstName)*@
+                    <span data-bind="text: FirstName"></span>
+                </td>
+                <td>
+                  @*  @Html.DisplayFor(modelItem => item.LastName)*@
+                    <span data-bind="text: LastName"></span>
+                </td>
+                <td>
+                   @* @Html.DisplayFor(modelItem => item.DialCode)*@
+                    <span data-bind="text: DialCode"></span>
+                </td>
+                <td>
+                  @*  @Html.DisplayFor(modelItem => item.ContactNumber)*@
+                    <span data-bind="text: ContactNumber"></span>
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Image)*@
+                    <span data-bind="text: Image"></span>
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.AverageRating)*@
+                    <span data-bind="text: AverageRating"></span>
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new {id = "text: Id" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+                </td>
+
+            </tr>
+
+        @*}*@
+    </tbody>
+    </table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/knockout")
+}
+<script type="text/javascript">
+    var AppViewModel = function () {
+        var self = this;
+        self.Clients = ko.mapping.fromJS([]);
+        $.getJSON('/Clients/Index/', function (data) {
+            ko.mapping.fromJS(data, {}, self.Clients);
+        });
+    }
+
+    jQuery(document).ready(function ($) {
+        var viewModel = new AppViewModel();
+        ko.applyBindings(viewModel);
+         });
+</script>
